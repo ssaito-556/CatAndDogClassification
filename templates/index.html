@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='ja'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content="device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-Compatible' content="ie=edge">
+    <title>Cat and Dog Classification</title>
+    <link rel='stylesheet' href="./static/stylesheet.css">
+</head>
+
+<body>
+    <header>
+        <a class='header-logo' href="#">Cat and Dog Classification</a>
+    </header>
+
+    <div class='main'>
+        <h2>AIが送信された画像が犬か猫かを識別します</h2>
+        <p>画像を送信してください</p>
+
+        <!-- フラッシュメッセージの表示 -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method='POST' enctype="multipart/form-data">
+            <input class='file_choose' type="file" name="file">
+            <input class='btn' value="submit!" type="submit">
+        </form>
+        <div class='answer'>{{ answer }}</div>
+    </div>
+
+    <footer>
+    </footer>
+</body>
+
+</html>
